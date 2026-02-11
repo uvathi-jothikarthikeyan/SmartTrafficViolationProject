@@ -1,8 +1,12 @@
 import cv2
 
-img= cv2.imread("test.png")
+cap=cv2.VideoCapture(0)
 
-cv2.rectangle(img,(50,50),(300,300),(0,255,0),3)
-cv2.imshow("Image",img)
-cv2.waitKey(0)
+while True:
+    ret,frame=cap.read()
+
+    cv2.imshow("Camera",frame)
+    if cv2.waitKey(1)==27:
+        break
+cap.release()
 cv2.destroyAllWindows()
